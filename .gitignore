@@ -1,0 +1,10 @@
+# 示例数据（已在仓库中）
+# !examples/README.md
+
+# 本地测试文件
+*.log
+*.tmp
+
+# 临时文件
+.DS_Store
+Thumbs.db
