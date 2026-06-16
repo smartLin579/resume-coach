@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简历模板</title>
+<style>
+/* ===== 全局重置 ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== 页面设置 ===== */
+@page {
+  size: A4;
+  margin: 14mm 16mm;
+}
+
+html {
+  font-size: 14px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: -apple-system, "Microsoft YaHei", "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
+  color: #333333;
+  line-height: 1.6;
+  background: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 简历容器 ===== */
+.resume {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  padding: 40px 48px;
+}
+
+/* ===== 头部 ===== */
+.resume-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1a5276;
+}
+
+.resume-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a5276;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.resume-header .subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.resume-header .contact {
+  font-size: 13px;
+  color: #777;
+}
+
+.resume-header .contact span {
+  margin: 0 6px;
+}
+
+.resume-header .contact .sep {
+  color: #ccc;
+}
+
+/* ===== 职业总结 ===== */
+.resume-summary {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-left: 3px solid #1a5276;
+  border-radius: 0 4px 4px 0;
+}
+
+.resume-summary p {
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===== 区块通用 ===== */
+.resume-section {
+  margin-bottom: 18px;
+}
+
+.resume-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a5276;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+  letter-spacing: 1px;
+}
+
+/* ===== 专业技能 ===== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+}
+
+.skill-item {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.skill-item .skill-label {
+  font-weight: 600;
+  color: #444;
+}
+
+.skill-item .skill-content {
+  color: #666;
+}
+
+.skill-line {
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.skill-line .skill-label {
+  font-weight: 600;
+  color: #1a5276;
+  margin-right: 4px;
+}
+
+/* ===== 工作经历 ===== */
+.experience-item {
+  margin-bottom: 14px;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.experience-header .company {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #333;
+}
+
+.experience-header .company .role {
+  font-weight: 500;
+  color: #555;
+  margin-left: 8px;
+}
+
+.experience-header .date {
+  font-size: 12.5px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.experience-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience-list li {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.experience-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #1a5276;
+  font-weight: bold;
+}
+
+.experience-list li strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* ===== 项目经验 ===== */
+.project-item {
+  margin-bottom: 12px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.project-header .project-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.project-header .project-role {
+  font-size: 12.5px;
+  color: #888;
+}
+
+/* ===== 教育背景 ===== */
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.education-item .school {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.education-item .degree {
+  font-size: 13px;
+  color: #666;
+}
+
+.education-item .date {
+  font-size: 12.5px;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* ===== 荣誉/证书 ===== */
+.honors-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.honors-list li {
+  font-size: 13px;
+  color: #555;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.honors-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #1a5276;
+}
+
+/* ===== 打印适配 ===== */
+@media print {
+  body {
+    background: #FFFFFF;
+    font-size: 12pt;
+  }
+
+  .resume {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .resume-section {
+    page-break-inside: avoid;
+  }
+
+  .experience-item {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="resume">
+
+  <!-- ===== 头部信息 ===== -->
+  <header class="resume-header">
+    <h1>张三</h1>
+    <div class="subtitle">高级后端工程师 / 架构师</div>
+    <div class="contact">
+      <span>北京</span><span class="sep">|</span>
+      <span>138-0000-0000</span><span class="sep">|</span>
+      <span>zhangsan@email.com</span><span class="sep">|</span>
+      <span>github.com/zhangsan</span>
+    </div>
+  </header>
+
+  <!-- ===== 职业总结 ===== -->
+  <div class="resume-summary">
+    <p>8 年后端架构经验，主导设计日均亿级请求的高并发分布式系统。擅长微服务架构、性能优化和团队管理，曾带领 15 人团队完成核心交易系统重构，系统可用性从 99.9% 提升至 99.99%。</p>
+  </div>
+
+  <!-- ===== 专业技能 ===== -->
+  <section class="resume-section">
+    <h2>专业技能</h2>
+    <div class="skills-grid">
+      <div class="skill-line"><span class="skill-label">编程语言：</span>Java / Go / Python / Shell</div>
+      <div class="skill-line"><span class="skill-label">框架与中间件：</span>Spring Cloud / Dubbo / gRPC / Kafka / Redis</div>
+      <div class="skill-line"><span class="skill-label">数据库：</span>MySQL（分库分表）/ PostgreSQL / MongoDB / Elasticsearch</div>
+      <div class="skill-line"><span class="skill-label">分布式与高并发：</span>高可用架构 / 限流降级 / 分布式事务 / 服务治理</div>
+      <div class="skill-line"><span class="skill-label">DevOps 与云：</span>Docker / Kubernetes / CI/CD / 阿里云 / AWS</div>
+    </div>
+  </section>
+
+  <!-- ===== 工作经历 ===== -->
+  <section class="resume-section">
+    <h2>工作经历</h2>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <div class="company">某科技有限公司 <span class="role">— 高级架构师</span></div>
+        <div class="date">2021.06 - 至今</div>
+      </div>
+      <ul class="experience-list">
+        <li><strong>系统架构设计：</strong>主导设计支付核心链路微服务架构，日均处理交易 500 万+笔，系统可用性 99.99%</li>
+        <li><strong>性能优化：</strong>重构核心订单查询链路，响应时间从 800ms 降至 60ms，QPS 从 2000 提升至 15000</li>
+        <li><strong>团队管理：</strong>带领 15 人后端团队，建立技术规范和代码评审机制，团队交付效率提升 40%</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <div class="company">某互联网公司 <span class="role">— 后端开发工程师</span></div>
+        <div class="date">2018.03 - 2021.05</div>
+      </div>
+      <ul class="experience-list">
+        <li><strong>数据平台建设：</strong>从 0 搭建实时数据采集和处理平台，覆盖 3 条业务线、200+ 数据源</li>
+        <li><strong>中间件开发：</strong>设计并实现通用消息推送中间件，日均推送量 1 亿+，推送成功率 99.5%</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 项目经验（可选） ===== -->
+  <section class="resume-section">
+    <h2>项目经验</h2>
+
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">分布式支付系统重构</div>
+        <div class="project-role">架构负责人</div>
+      </div>
+      <ul class="experience-list">
+        <li><strong>背景：</strong>原有单体架构无法支撑日均 500 万笔交易，高峰期频繁降级</li>
+        <li><strong>方案：</strong>设计基于 Saga 模式的分布式事务方案，拆分为 12 个微服务，引入 Redis 集群做热点账户缓存</li>
+        <li><strong>成果：</strong>系统吞吐量提升 8 倍，高峰期零降级，年故障时间从 4 小时降至 5 分钟</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 教育背景 ===== -->
+  <section class="resume-section">
+    <h2>教育背景</h2>
+    <div class="education-item">
+      <div>
+        <span class="school">某大学</span>
+        <span class="degree">— 计算机科学与技术 · 本科</span>
+      </div>
+      <div class="date">2014.09 - 2018.06</div>
+    </div>
+  </section>
+
+  <!-- ===== 荣誉/证书（可选） ===== -->
+  <section class="resume-section">
+    <h2>荣誉与证书</h2>
+    <ul class="honors-list">
+      <li>阿里云 ACA 认证（云架构师）</li>
+      <li>公司年度优秀员工（2023）</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
